@@ -1,0 +1,175 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Kannada Jnanapeeta Award Winners
+{% endblock title %}
+
+{% block main-content %}
+<style>
+    body {
+        background: linear-gradient(135deg, #d4edda, #a8df8e); /* Light Green Gradient */
+        font-family: 'Poppins', sans-serif;
+        color: black;
+    }
+    .container {
+        padding: 30px;
+    }
+    /* Moving Heading Animation */
+    @keyframes moveLeftRight {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(10px); } /* Moves slightly right */
+        100% { transform: translateX(0); } /* Moves back */
+    }
+    h1 {
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        color: #155724;
+        display: inline-block;
+        animation: moveLeftRight 2s infinite ease-in-out; /* Smooth left-right movement */
+    }
+    marquee {
+        font-weight: bold;
+        font-size: 1.2rem;
+        background: rgba(0, 100, 0, 0.2);
+        padding: 10px;
+        border-radius: 10px;
+        color: #155724;
+    }
+    .card {
+        background: rgba(218, 247, 166, 0.9); /* Soft Green Background */
+        backdrop-filter: blur(5px);
+        border-radius: 20px;
+        box-shadow: 0px 10px 20px rgba(0, 50, 0, 0.2);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 15px 30px rgba(0, 50, 0, 0.3);
+    }
+    .btn-lg {
+        font-size: 1.3rem;
+        border-radius: 30px;
+        padding: 12px 25px;
+        transition: all 0.3s ease-in-out;
+        background: #28a745;
+        border: none;
+        color: white;
+    }
+    .btn-lg:hover {
+        box-shadow: 0px 5px 15px rgba(40, 167, 69, 0.5);
+        transform: translateY(-3px);
+    }
+    .video iframe {
+        border-radius: 15px;
+        box-shadow: 0px 5px 15px rgba(0, 50, 0, 0.3);
+    }
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #155724;
+        margin-top: 20px;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="container text-center">
+    <h1 class="mt-4">🚜 Major Agricultural Schemes 🚜</h1>
+    
+    <marquee class="p-2">🚜 Special Agricultural Schemes for Farmers! Get More Information! 🌾</marquee>
+    
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card mb-4 p-3">
+                <div class="card-body">
+                    <h2 class="section-title">🌾 Prime Minister Kisan Samman Nidhi (PM-KISAN)</h2>
+                    <p><strong>💡 Benefits:</strong> Direct cash assistance of ₹6,000 every year.</p>
+                    <p><strong>👥 Eligibility:</strong>Small and marginal landholding farmers.</p>
+                    <p><strong>📝 Applicationಿ:</strong> <a href="https://pmkisan.gov.in/" target="_blank" class="text-dark">PM-KISAN Portal</a></p>
+                    <div class="video text-center">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/L0v0ALDlO5I" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4 p-3">
+                <div class="card-body">
+                    <h2 class="section-title">🌱 Prime Minister's Crop Insurance Scheme (PMFBY)</h2>
+                    <p><strong>💡 Benefits:</strong> Crop insurance security, protection from natural disasters.</p>
+                    <p><strong>👥 Eligibility:</strong> All farmers.</p>
+                    <p><strong>📝 Application:</strong> <a href="https://pmfby.gov.in/" target="_blank" class="text-dark">PMFBY ಪೋರ್ಟಲ್</a></p>
+                    <div class="video text-center">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/2rhz6Tz0Mtg" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4 p-3">
+                <div class="card-body">
+                    <h2 class="section-title">💧 Prime Minister's Agriculture Irrigation Scheme</h2>
+                    <p><strong>💡 Benefits:</strong> Efficient water usage, increased crop growth, micro-irrigation subsidy</p>
+                    <p><strong>👥 Eligibility:</strong> Small and marginal landholding farmers</p>
+                    <p><strong>📝 Application:</strong> <a href="https://pmksy.gov.in/" target="_blank" class="text-dark">PMFBY Portal</a></p>
+                    <div class="video text-center">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/2rhz6Tz0Mtg" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4 p-3">
+                <div class="card-body">
+                    <h2 class="section-title">🎓 Chief Minister Farmer Education Fund</h2>
+                    <p><strong>💡 Benefits:</strong> Free educational scholarship for children of farmers who are school and college students.</p>
+                    <p><strong>👥 Eligibility:</strong> Children of farmers (school and college students).</p>
+                    <p><strong>📝 Application:</strong> <a href="https://ssp.postmatric.karnataka.gov.in/2425_sa/signin.aspx" target="_blank" class="text-dark">SSP Portal</a></p>
+                    <div class="video text-center">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/c-a9WLuCquo?si=OB76GcbLJyAFjA1h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4 p-3">
+                <div class="card-body">
+                    <h2 class="section-title">🐄Animal Insurance Scheme(Livestock Insurance Scheme)</h2>
+                    <p><strong>💡 Benefits:</strong> Helps farmers reduce financial losses caused by the untimely death of livestock.</p>
+                    <p><strong>📜Scope:</strong> Insurance for cattle, goats, sheep, camels, horses, and other livestock.</p>
+                    <p><strong>💰 Premium:</strong> 50% to 70% subsidy assistance from the government..</p>
+                    <p><strong>📝 Application:</strong> <a href="https://dahd.nic.in/" target="_blank" class="text-dark">Official website of the Animal Husbandry Department</a></p>
+                    <div class="video text-center">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/FQOubTx1Tqk?si=XTK7WcUKCHKo6c1k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4 p-3">
+                <div class="card-body">
+                    <h2 class="section-title">💳 Kisan Credit Card (KCC) Scheme</h2>
+                    <p><strong>💡 Benefits:</strong> Agricultural loans to farmers at low-interest rates.</p>
+                    <p><strong>📜 Scope:</strong> Financial assistance for agricultural activities, livestock management, fisheries, and other agriculture-related operations.</p>
+                    <p><strong>💰 Interest Rate:</strong> 7% loan interest rate, with a 3% rebate incentive.</p>
+                    <p><strong>📝 Application:</strong> <a href="https://pmkisan.gov.in/" target="_blank" class="text-dark">PM-Kisan Authorized Portal</a></p>
+                    <div class="video text-center">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/OzZtOcT_7mw?si=LLEqCbYa5iLl0R12" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        
+                        
+        
+        
+    </div>
+    
+    <div class="text-center mb-4">
+        <a href="https://services.india.gov.in/service/detail/major-schemes-for-farmers" class="btn btn-lg">🔍 For more information, click here.</a>
+    </div>
+</div>
+{% endblock main-content %}
+
+

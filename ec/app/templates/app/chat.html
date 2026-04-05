@@ -1,0 +1,304 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}MitraBot{% endblock title %}
+
+{% block main-content %}
+<style>
+    body {
+        background: linear-gradient(135deg, #a5d6a7, #388e3c), url('{% static "images/farm_bg_shine.jpg" %}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .chat-wrapper {
+        max-width: 650px;
+        margin: 30px auto;
+        padding: 25px;
+        background: #ffffffcc;
+        border-radius: 18px;
+        border: 1px solid #a3d9a5;
+        box-shadow: 0 15px 30px rgba(0, 100, 0, 0.15);
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .chat-wrapper h1 {
+        text-align: center;
+        font-size: 2.4rem;
+        color: #2e7d32;
+        font-family: 'Georgia', serif;
+        margin-bottom: 6px;
+    }
+
+    .chat-wrapper .subtitle {
+        text-align: center;
+        font-style: italic;
+        color: #4e944f;
+        font-size: 1rem;
+        margin-bottom: 18px;
+    }
+
+    #chat-box {
+        height: 350px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 15px;
+        background-color: #f3fdf4;
+        margin-bottom: 10px;
+        scroll-behavior: smooth;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .message {
+        margin: 12px 0;
+        padding: 10px 14px;
+        border-radius: 12px;
+        animation: slideIn 0.3s ease-in-out;
+        max-width: 85%;
+        word-wrap: break-word;
+        font-size: 0.94rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .user-message {
+        background: linear-gradient(to right, #c1eaff, #a5d3f7);
+        border-left: 5px solid #2196f3;
+        margin-left: auto;
+    }
+
+    .assistant-message {
+        background: linear-gradient(to right, #e8f7e8, #c1f0c1);
+        border-left: 5px solid #43a047;
+        margin-right: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    .message-header {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 0.85rem;
+        color: #388e3c;
+    }
+
+    .code-block {
+        background: #eaf0e3;
+        padding: 10px;
+        font-family: monospace;
+        border-radius: 6px;
+        border-left: 4px solid #9ccc65;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        margin-top: 8px;
+        font-size: 0.9rem;
+        position: relative;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        font-size: 11px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .copy-btn:hover {
+        background-color: #5a6268;
+    }
+
+    #user-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #bdbdbd;
+        border-radius: 8px;
+        font-size: 15px;
+        margin-bottom: 8px;
+        transition: border 0.3s ease;
+    }
+
+    #user-input:focus {
+        border: 1px solid #4caf50;
+        box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    }
+
+    #send-button {
+        width: 100%;
+        padding: 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #send-button:hover {
+        background-color: #388e3c;
+    }
+
+    #spinner {
+        display: none;
+        margin: 10px auto;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #4caf50;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    @keyframes slideIn {
+        from {transform: translateY(10px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
+    }
+
+    @keyframes spin {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+    }
+
+    @media (max-width: 600px) {
+        .chat-wrapper {
+            margin: 10px;
+            padding: 16px;
+        }
+
+        #chat-box {
+            height: 280px;
+        }
+
+        #user-input, #send-button {
+            font-size: 14px;
+        }
+    }
+</style>
+
+
+<div class="chat-wrapper">
+    <h1>🌱 MitraBot</h1>
+    <p class="subtitle">Your Farming Chat Assistant– 🧠😊Intelligent Friend</p>
+    <div id="chat-box"></div>
+    <div id="spinner"></div>
+    <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+    <button id="send-button">Submit</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#send-button').click(sendMessage);
+        $('#user-input').keypress(function (e) {
+            if (e.which === 13) {
+                sendMessage();
+                return false;
+            }
+        });
+
+        function sendMessage() {
+            const userInput = $('#user-input').val();
+            if (!userInput.trim()) return;
+
+            $('#chat-box').append(
+                `<div class="message user-message">
+                    <div class="message-header">you:</div>
+                    <div>${escapeHtml(userInput)}</div>
+                </div>`
+            );
+            $('#spinner').show();
+            $('#user-input').val('');
+            scrollChatToBottom();
+
+            $.ajax({
+                type: 'POST',
+                url: '{% url "chat" %}',
+                data: {
+                    'message': userInput,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    const formatted = formatResponse(data.response);
+                    $('#chat-box').append(
+                        `<div class="message assistant-message">
+                            <div class="message-header">ರೈತವಾಣಿ:</div>
+                            ${formatted}
+                        </div>`
+                    );
+                },
+                error: function (xhr) {
+                    $('#chat-box').append(
+                        `<div class="message assistant-message">
+                            <div class="message-header">error:</div>
+                            <div>${xhr.responseJSON?.error || 'Something went wrong.'}</div>
+                        </div>`
+                    );
+                },
+                complete: function () {
+                    $('#spinner').hide();
+                    scrollChatToBottom();
+                }
+            });
+        }
+
+        function formatResponse(text) {
+            if (text.includes('```')) {
+                const parts = text.split('```');
+                let html = '';
+                for (let i = 0; i < parts.length; i++) {
+                    if (i % 2 === 0) {
+                        html += `<div>${formatText(parts[i])}</div>`;
+                    } else {
+                        const code = escapeHtml(parts[i].trim());
+                        html += `<div class="code-block">
+                                    <button class="copy-btn" onclick="copyCode(\`${code}\`, this)">Copy</button>
+                                    ${code}
+                                </div>`;
+                    }
+                }
+                return html;
+            } else {
+                return `<div>${formatText(text)}</div>`;
+            }
+        }
+
+        function formatText(text) {
+            return escapeHtml(text).replace(/\n/g, '<br>');
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;")
+                      .replace(/</g, "&lt;")
+                      .replace(/>/g, "&gt;")
+                      .replace(/"/g, "&quot;")
+                      .replace(/'/g, "&#039;");
+        }
+
+        function scrollChatToBottom() {
+            $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+        }
+
+        window.copyCode = function(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            });
+        };
+    });
+</script>
+{% endblock %}

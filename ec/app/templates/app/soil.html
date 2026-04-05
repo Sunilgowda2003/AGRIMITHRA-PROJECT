@@ -1,0 +1,119 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Best Soil for Different Plants{% endblock title %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #d4edda; /* Light green background */
+        color: #343a40; /* Dark text for readability */
+        font-family: Arial, sans-serif;
+    }
+    .soil-page {
+        background-color: #d4edda; /* Light Green */
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+    .section {
+        background: white;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+        border: 2px solid #2c6e49; /* Dark green border */
+    }
+    h2 {
+        text-align: center;
+        color: #1b4332;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+    h3 {
+        text-align: center;
+        color: #2d6a4f;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    p {
+        text-align: justify;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+    .icon {
+        font-weight: bold;
+        color: #1b4332;
+    }
+    .video-container {
+        text-align: center;
+        margin-top: 15px;
+    }
+    .video-container iframe {
+        width: 90%;
+        max-width: 560px;
+        height: 290px;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="container soil-page">
+    <h2>Best Soil for Different Plants</h2>
+    <p class="text-center">Discover the ideal soil types for various plants to ensure healthy growth and maximum yield.</p>
+
+    <div class="section">
+        <h3>🌾 Wheat</h3>
+        <p><span class="icon">🌱 Preferred Soil:</span> Loamy and well-drained soil with good organic matter.</p>
+        <p><span class="icon">✅ pH Level:</span> 6.0 - 7.5</p>
+        <p><span class="icon">💧 Watering Needs:</span> Moderate irrigation with proper drainage.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/3pcr_vQbEYA?si=F2mdVxjhfxjwBO38" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🌻 Sunflower</h3>
+        <p><span class="icon">🌱 Preferred Soil:</span> Sandy loam with good moisture retention.</p>
+        <p><span class="icon">✅ pH Level:</span> 6.0 - 7.5</p>
+        <p><span class="icon">💧 Watering Needs:</span> Requires moderate watering.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/S2nBOsv4Fwg?si=8GWTdLL2VjwD06IR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🍅 Tomato</h3>
+        <p><span class="icon">🌱 Preferred Soil:</span> Well-drained, sandy loam enriched with organic compost.</p>
+        <p><span class="icon">✅ pH Level:</span> 6.2 - 6.8</p>
+        <p><span class="icon">💧 Watering Needs:</span> Frequent watering to maintain moisture.</p>
+        <div class="video-container">
+            <<iframe width="560" height="315" src="https://www.youtube.com/embed/Y2428o2D_Mo?si=OLwgo5L1HkhmBoVf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🥔 Potato</h3>
+        <p><span class="icon">🌱 Preferred Soil:</span> Loose, sandy soil with good aeration.</p>
+        <p><span class="icon">✅ pH Level:</span> 5.0 - 6.5</p>
+        <p><span class="icon">💧 Watering Needs:</span> Moderate watering, avoid waterlogging.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/iIiIrPRY3Zw?si=EX03JRDb-QPjrHC1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🍇 Grapes</h3>
+        <p><span class="icon">🌱 Preferred Soil:</span> Well-drained, loamy soil with good organic content.</p>
+        <p><span class="icon">✅ pH Level:</span> 5.5 - 7.0</p>
+        <p><span class="icon">💧 Watering Needs:</span> Requires deep but infrequent watering.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1-Rr3s3N7BE?si=yfldrcJa7_YJj0xV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

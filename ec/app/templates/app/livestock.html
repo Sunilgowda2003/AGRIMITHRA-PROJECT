@@ -1,0 +1,159 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Livestock Management{% endblock title %}
+{% block content %}
+
+<style>
+    body {
+        background-color: #d4edda; /* Light green background */
+        color: #343a40; /* Darker text for better readability */
+    }
+    .section {
+        padding: 20px;
+        border-radius: 10px;
+        background: #ffffff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .video-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .video-container iframe {
+        width: 680px;
+        height: 380px;
+        border-radius: 10px;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-3 text-success">LIVESTOCK MANAGEMENT</h2>
+    <p class="text-center text-muted">Comprehensive guidance on livestock feeding, grazing, breeding, health monitoring, and overall care for farmers.</p>
+
+    <!-- Navigation Buttons -->
+    <div class="text-center mb-4">
+        <button class="btn btn-success mx-2" onclick="showSection('cows')">Cows</button>
+        <button class="btn btn-success mx-2" onclick="showSection('sheep')">Sheep</button>
+        <button class="btn btn-success mx-2" onclick="showSection('chickens')">Chickens</button>
+    </div>
+
+    <!-- Cows Section -->
+    <div id="cows" class="section mt-5" style="display: none;">
+        <h3 class="text-center text-primary">Cows Management</h3>
+        <p class="text-center text-muted">Feeding, grazing, breeding, and health management for cows.</p>
+
+        <h4 class="text-center text-info">Feeding</h4>
+        <div class="col-md-10 mb-4 text-center mx-auto">
+            <h5 class="text-primary">Best Feeding Practices</h5>
+            <p class="text-secondary">Learn about cow nutrition.</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Z9ku6gKywsA" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/J1bf_jHdrWI" allowfullscreen></iframe>
+            </div>
+        </div>
+        <h4 class="text-center text-info">Milk Production</h4>
+        <div class="col-md-10 mb-4 text-center mx-auto">
+            <h5 class="text-primary">Enhancing Milk Yield</h5>
+            <p class="text-secondary">Techniques to increase milk production in dairy cows.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/614rI9JXgQ8?si=6HNxEkazxdD1JpJY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/xrpZYYZdas4?si=t8MoKoUnns9E_7tN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            
+        </div>
+
+        <h4 class="text-center text-info">Health Care</h4>
+        <div class="col-md-10 mb-4 text-center mx-auto">
+            <h5 class="text-primary">Cow Health Care Techniques</h5>
+            <p class="text-secondary">Guide to improving cattle health.</p>
+
+            <!-- Fever Treatment -->
+            <h5 class="text-danger mt-4">Fever Treatment</h5>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/hH8laV-7mmk" allowfullscreen></iframe>
+            </div>
+
+            <!-- Bloat Treatment -->
+            <h5 class="text-danger mt-4">Bloat Treatment</h5>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fT0Q2TPlwFI?si=9WuM5J5fRGAwjuG8"
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+                    encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+            <h5 class="text-danger mt-4">Lumpy Skin Treatment</h5>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/h-rkP6yC7uo?si=JMhLrzLamwlbGYfo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            
+        </div>
+    </div>
+   
+    <!-- Sheep Section -->
+    <div id="sheep" class="section mt-5" style="display: none;">
+        <h3 class="text-center text-primary">Sheep Management</h3>
+        <p class="text-center text-muted">Feeding, grazing, breeding, and health management for sheep.</p>
+
+        <h4 class="text-center text-info">Grazing</h4>
+        <div class="col-md-10 mb-4 text-center mx-auto">
+            <h5 class="text-primary">Best Grazing Practices</h5>
+            <p class="text-secondary">Optimal grazing areas for sheep.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/a8Bs1QsW0ZA?si=caKhkDAkOJ39d5la" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/C6y91tuXa0o?si=20Uh23kpWBMpmUmi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <h4 class="text-center text-info">Health Monitoring</h4>
+        <div class="col-md-10 mb-4 text-center mx-auto">
+            <h5 class="text-primary">Sheep Health Tips</h5>
+            <p class="text-secondary">How to monitor sheep health.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/TZG-9sRZHOE?si=t_LR9tinhQ8GyWHB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0GzC7URprbg?si=j--kOO2UiFJvzrPk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chicken Section -->
+    <div id="chickens" class="section mt-5" style="display: none;">
+        <h3 class="text-center text-primary">Chicken Management</h3>
+        <p class="text-center text-muted">Feeding, breeding, health monitoring, and overall management for chickens.</p>
+
+        <h4 class="text-center text-info">Feeding</h4>
+        <div class="col-md-10 mb-4 text-center mx-auto">
+            <h5 class="text-primary">Chicken Feed Types</h5>
+            <p class="text-secondary">Best diet for healthy chickens.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/WwlOoVLdrwg?si=cdn7gwermUGpAvIj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/qRvCV0karWs?si=6GVaUDYHA_kKPVDK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <h4 class="text-center text-info">Disease Prevention</h4>
+        <div class="col-md-10 mb-4 text-center mx-auto">
+            <h5 class="text-primary">Preventing Bird Flu</h5>
+            <p class="text-secondary">How to prevent poultry diseases.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/qNj2UHBZ7kM?si=x_JQF2CV7JSxaFse" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/sXLFEODDgM8?si=oUl1a398D40MDfxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to Show and Hide Sections -->
+<script>
+    function showSection(sectionId) {
+        document.getElementById("cows").style.display = "none";
+        document.getElementById("sheep").style.display = "none";
+        document.getElementById("chickens").style.display = "none";
+        document.getElementById(sectionId).style.display = "block";
+    }
+</script>
+
+{% endblock %}
+
+

@@ -1,0 +1,146 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Cart{% endblock title %}
+
+{% block main-content %}
+
+<!-- 🌟 Custom Styling for Background and Cards -->
+<style>
+    body {
+        background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+        background-attachment: fixed;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .card {
+        background-color: #ffffffcc;
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-body h3,
+    .card-body h4 {
+        color: #2c3e50;
+        font-weight: 600;
+    }
+
+    .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-primary:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+
+    .remove-cart.btn {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: none;
+    }
+
+    .remove-cart.btn:hover {
+        background-color: #f5c6cb;
+        color: #721c24;
+    }
+
+    h1.text-center {
+        font-weight: 700;
+        color: #2e8b57;
+    }
+
+    .img-thumbnail {
+        border-radius: 1rem;
+    }
+
+    hr.text-muted {
+        border-top: 1px solid #ccc;
+    }
+
+    .list-group-item {
+        background-color: transparent;
+    }
+</style>
+
+<div class="container my-5">
+    <div class="row">
+        {% if cart %}
+        <h1 class="text-center mb-5">🛒 Your Shopping Cart 🛒 </h1>
+
+        <div class="row">
+            <!-- 🧺 Cart Items Section -->
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Cart Items</h3>
+                        {% for item in cart %}
+                        <div class="row mb-3">
+                            <div class="col-sm-3 text-center align-self-center">
+                                <img src="{{ item.product.product_image.url }}" class="img-fluid img-thumbnail shadow-sm" height="150" width="150">
+                            </div>
+                            <div class="col-sm-9">
+                                <h5>{{ item.product.title }}</h5>
+                                <p class="mb-2 text-muted small">{{ item.product.description }}</p>
+
+                                <div class="my-3">
+                                    <label for="quantity">Quantity:</label>
+                                    <a class="minus-cart btn" pid="{{ item.product.id }}">
+                                        <i class="fas fa-minus-square fa-lg text-danger"></i>
+                                    </a>
+                                    <span id="quantity">{{ item.quantity }}</span>
+                                    <a class="plus-cart btn" pid="{{ item.product.id }}">
+                                        <i class="fas fa-plus-square fa-lg text-success"></i>
+                                    </a>
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="remove-cart btn btn-sm m-3" pid="{{ item.product.id }}">Remove item</a>
+                                    <p class="mb-0 fw-bold text-primary">Rs. {{ item.product.discounted_price }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="text-muted">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- 💳 Total Amount Section -->
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Order Summary</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                Amount <span id="amount">Rs.{{ amount }}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                Shipping Charges<span>Rs. 40.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                <div>
+                                    <strong>Total</strong> <small>(including GST)</small>
+                                </div>
+                                <span id="totalamount"><strong class="text-success">Rs. {{ totalamount }}</strong></span>
+                            </li>
+                        </ul>
+                        <div class="d-grid">
+                            <a href="{% url 'checkout' %}" class="btn btn-primary btn-lg shadow-sm">Place Order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <h1 class="text-center mb-5">Cart is Empty</h1>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock main-content %}
+
+                        

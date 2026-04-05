@@ -1,0 +1,177 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Orders{% endblock title %}
+
+{% block main-content %}
+<style>
+    body {
+        background: linear-gradient(to right, #e0f2d8, #d0ebd4); /* richer farm greens */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .content-wrapper {
+        background-color: #f3fff0;
+        border-radius: 20px;
+        padding: 45px 40px;
+        box-shadow: 0 12px 30px rgba(50, 100, 50, 0.15);
+    }
+
+    .order-card {
+        background: #e9f6e4; /* soft green with depth */
+        border-left: 6px solid #4a944a;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(60, 100, 60, 0.15);
+        padding: 25px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .order-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(60, 90, 60, 0.2);
+    }
+
+    .order-img {
+        border-radius: 10px;
+        border: 2px solid #bfe3b0;
+        background-color: #ecf7e6;
+        padding: 4px;
+    }
+
+    .order-status {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #2c4b2d;
+        margin-bottom: 12px;
+    }
+
+    .welcome-text {
+        font-size: 2.3rem;
+        font-weight: bold;
+        color: #274927;
+        background: linear-gradient(to right, #cce5c4, #f0f9e8);
+        padding: 15px 35px;
+        border-radius: 12px;
+        display: inline-block;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+        background-color: #347a34;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 22px;
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background-color: #285f29;
+    }
+
+    .progress {
+        height: 22px;
+        border-radius: 12px;
+        background-color: #dfe9df;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        font-weight: 600;
+        font-size: 0.85rem;
+        line-height: 22px;
+    }
+
+    .progress-bar.accepted {
+        background-color: #9ed087;
+        color: #333;
+    }
+
+    .progress-bar.packed {
+        background-color: #f7e672;
+        color: #333;
+    }
+
+    .progress-bar.onway {
+        background-color: #f8c947;
+        color: #333;
+    }
+
+    .progress-bar.delivered {
+        background-color: #50b577;
+        color: #fff;
+    }
+
+    .progress-bar.cancelled {
+        background-color: #d94234;
+        color: #fff;
+    }
+</style>
+
+<div class="container my-5 content-wrapper">
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h3 class="welcome-text">Welcome <span class="text-capitalize">{{ request.user }}</span></h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid mb-2">
+                    <a href="{% url 'orders' %}" class="btn btn-primary">Orders</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-9 offset-sm-1">
+            {% for op in order_placed %}
+            <div class="order-card">
+                <div class="row align-items-center">
+                    <div class="col-sm-2 text-center">
+                        <img src="{{ op.product.product_image.url }}" class="img-fluid order-img" height="100" width="100" alt="Product Image"/>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <p><strong>Product:</strong> {{ op.product.title }}</p>
+                        <p><strong>Quantity:</strong> {{ op.quantity }}</p>
+                        <p><strong>Total Price:</strong> ₹{{ op.total_cost }}</p>
+                          <p class="text-success fw-bold">🚚 Delivered within 3 days</p>
+                              <p class="text-success fw-bold">🚚  fruits and vegetables Delivered within 6hrs</p>
+
+                    </div>
+                     
+                    <div class="col-sm-4">
+                        <p class="order-status">Order Status: {{ op.status }}</p>
+                           
+                        {% if op.status == 'Accepted' %}
+                        <div class="progress">
+                            <div class="progress-bar accepted" role="progressbar" style="width: 20%">Accepted</div>
+                        </div>
+                        {% elif op.status == 'Packed' %}
+                        <div class="progress">
+                            <div class="progress-bar packed" role="progressbar" style="width: 40%">Packed</div>
+                        </div>
+                        {% elif op.status == 'On The Way' %}
+                        <div class="progress">
+                            <div class="progress-bar onway" role="progressbar" style="width: 70%">On The Way</div>
+                        </div>
+                        {% elif op.status == 'Delivered' %}
+                        <div class="progress">
+                            <div class="progress-bar delivered" role="progressbar" style="width: 100%">Delivered</div>
+                        </div>
+                        {% elif op.status == 'Cancel' %}
+                        <div class="progress">
+                            <div class="progress-bar cancelled" role="progressbar" style="width: 100%">Cancelled</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
+
+
+

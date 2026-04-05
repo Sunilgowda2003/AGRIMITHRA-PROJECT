@@ -1,0 +1,171 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Modern Agricultural Equipment Training{% endblock title %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #d4edda; /* Light green background */
+        color: #343a40; /* Dark text for readability */
+        font-family: Arial, sans-serif;
+    }
+    .training-page {
+        background-color: #d4edda; /* Light Green */
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+    .section {
+        background: white;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+        border: 2px solid #2c6e49; /* Dark green border */
+    }
+    h2 {
+        text-align: center;
+        color: #1b4332;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+    h3 {
+        text-align: center;
+        color: #2d6a4f;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    p {
+        text-align: justify;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+    .video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+    .video-container iframe {
+        width: 450px;
+        height: 250px;
+        border-radius: 8px;
+    }
+    .icon {
+        font-weight: bold;
+        color: #1b4332;
+    }
+</style>
+
+<div class="container training-page">
+    <h2>Modern Agricultural Equipment Training</h2>
+    <p class="text-center">Learn about modern agricultural tools that improve productivity and efficiency in farming.</p>
+
+    <div class="section">
+        <h3>🚜 Tractor</h3>
+        <p><span class="icon">🔧 Function:</span> Used for plowing, tilling, planting, and transporting heavy loads.</p>
+        <p><span class="icon">✅ Benefits:</span> Increases efficiency, reduces labor, and allows mechanization of large farms.</p>
+        <p><span class="icon">🌍 Importance:</span> Essential for modern farming, replacing traditional animal-drawn equipment.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fZwDJoMUPUY?si=qJvEp7x3qeE6-Xt4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🌾 Thresher</h3>
+        <p><span class="icon">🔧 Function:</span> Separates grains from stalks and husks after harvesting.</p>
+        <p><span class="icon">✅ Benefits:</span> Speeds up the post-harvest process and reduces grain losses.</p>
+        <p><span class="icon">🌍 Importance:</span> Essential in grain-producing areas to improve efficiency.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7kVxslaEks0?si=dOdV9zzZNmEWZUBP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>💦 Sprayer</h3>
+        <p><span class="icon">🔧 Function:</span> Applies pesticides, herbicides, and fertilizers uniformly.</p>
+        <p><span class="icon">✅ Benefits:</span> Improves pest control and enhances crop yield.</p>
+        <p><span class="icon">🌍 Importance:</span> Ensures healthy crops by protecting against diseases.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/M2nLQzZSm4w?si=V8stmZxaqfng4R-B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🌽 Combine Harvester</h3>
+        <p><span class="icon">🔧 Function:</span> Performs reaping, threshing, and winnowing in one operation.</p>
+        <p><span class="icon">✅ Benefits:</span> Reduces labor costs and speeds up the harvesting process.</p>
+        <p><span class="icon">🌍 Importance:</span> Maximizes productivity in large-scale farming.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/bwOBDW_95RU?si=dOvFQLDkpoBEsDIA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🔄 Rotavator</h3>
+        <p><span class="icon">🔧 Function:</span> Breaks up soil and mixes organic matter before planting.</p>
+        <p><span class="icon">✅ Benefits:</span> Improves soil structure and aeration.</p>
+        <p><span class="icon">🌍 Importance:</span> Essential for preparing seedbeds efficiently.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/bR3NsJyXcww?si=X9RH8CCPlid_wV82" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🌱 Precision Seeders</h3>
+        <p><span class="icon">🔧 Function:</span> Sows seeds at the correct depth and spacing.</p>
+        <p><span class="icon">✅ Benefits:</span> Ensures uniform germination and improves crop yield.</p>
+        <p><span class="icon">🌍 Importance:</span> Reduces seed wastage and enhances productivity.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/HL2ipRtaeWs?si=uAcyYqwJMOaTq-lE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🚜 Plough</h3>
+        <p><span class="icon">🔧 Function:</span> Turns and aerates soil before planting.</p>
+        <p><span class="icon">✅ Benefits:</span> Improves water retention and soil fertility.</p>
+        <p><span class="icon">🌍 Importance:</span> Essential for soil preparation and weed control.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dhSFrXUxm0Q?si=4NOnguvsb9b3D2Zq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🌬️ Duster</h3>
+        <p><span class="icon">🔧 Function:</span> Distributes dry pesticides and fungicides on crops.</p>
+        <p><span class="icon">✅ Benefits:</span> Protects crops from pests and diseases.</p>
+        <p><span class="icon">🌍 Importance:</span> Essential for pest management in farming.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DSNTBRnva6Q?si=TXdwSbHNybA2mvuP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="section">
+        <h3>🌿 Cultivator</h3>
+        <p><span class="icon">🔧 Function:</span> Removes weeds and loosens soil for better crop growth.</p>
+        <p><span class="icon">✅ Benefits:</span> Enhances aeration and moisture absorption.</p>
+        <p><span class="icon">🌍 Importance:</span> Prevents weed competition and improves soil health.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wKizg2u9gmw?si=Td8fAQoqSh0WB2ir" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="section">
+        <h3>✂️ Grass Cutter</h3>
+        <p><span class="icon">🔧 Function:</span> Cuts grass, weeds, and shrubs for farm maintenance.</p>
+        <p><span class="icon">✅ Benefits:</span> Keeps fields clean and reduces pest habitats.</p>
+        <p><span class="icon">🌍 Importance:</span> Essential for maintaining farm hygiene.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/64-ZgWl5JlE?si=tNbzp54SEErJxuW6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

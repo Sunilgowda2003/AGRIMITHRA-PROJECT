@@ -1,0 +1,431 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block main %}
+<marquee behavior="scroll" direction="left" scrollamount="15" loop="infinite" class="marquee-text">
+    <h3 class="" >🌾 🌿Agri-Mithra 🌿 🚜🌾</h3>
+</marquee>
+
+<style>
+    /* Marquee styling */
+    .marquee-text {
+        background: rgb(139, 130, 34); /* Earthy tone for an agricultural theme */
+        color: #FFD700; /* Golden yellow text for visibility */
+        font-weight: bold;
+        font-size: 2rem;
+        padding: 3px 5px; /* ✅ Reduced padding */
+        margin: 0; /* Remove unnecessary margins */
+        text-align: center;
+        border-radius: 8px; /* Rounded edges */
+        white-space: nowrap; /* Keeps text in one line */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Lighter shadow */
+    }
+
+    /* Blinking effect only on text */
+    .marquee-text h1 {
+        animation: blinkText 0.8s infinite alternate;
+        margin: 0; /* Remove extra margins */
+        padding: 0; /* Remove extra padding */
+    }
+
+    @keyframes blinkText {
+        0% { opacity: 1; }
+        100% { opacity: 0.6; } /* Soft blinking effect */
+    }
+
+    /* Reduce space occupied by main-content */
+    #main-content {
+        margin: 0;
+        padding: 0;
+    }
+    .blinking-text {
+        display: block; /* Ensures the element behaves as a block-level element */
+        width: fit-content; /* Sets the width to match the content */
+        margin: 0 auto; /* Centers the element horizontally */
+        text-align: center; /* Centers the text within the element */
+        transform-origin: center; /* Ensures scaling occurs from the center */
+        animation: subtleBlink 2s infinite, forwardBack 2s infinite;
+        font-weight: bold;
+    }
+    
+    /* Blinking color animation */
+    @keyframes subtleBlink {
+        0%   { color: #2e7d32; } /* Deep Farming Green */
+        50%  { color: #f9a825; } /* Soft Golden Yellow */
+        100% { color: #6d4c41; } /* Mild Earthy Brown */
+    }
+    
+    /* Forward-back scale animation */
+    @keyframes forwardBack {
+        0%   { transform: scale(1); }
+        50%  { transform: scale(1.05); } /* Slight zoom for forward effect */
+        100% { transform: scale(1); }
+    }
+    
+    
+</style>
+{% endblock main %}
+
+<!-- Used for sliding images -->
+{% block banner-slider %}
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button> <!-- Added this -->
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 7"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7" aria-label="Slide 8"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/n1.jpg'%}" class="d-block w-100" alt="banner image" style="max-height: 500px; width: auto;">
+       <div class="carousel-caption d-none d-md-block">
+                <h5 style="font-weight: bold;"> "Nature"</h5>
+                <p style="font-weight: bold;" >"Nature provides the essential resources necessary for our lives, and it is our responsibility to protect it..</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/img banner2.jpg'%}" class="d-block w-100" alt="banner image" style="max-height: 500px; width: auto;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="font-weight: bold; ">Punyakoti</h5>
+                <p style="font-weight: bold; ">"The cow possesses the ability to nurture like a mother."</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/law.jpg'%}" class="d-block w-100" alt="banner image" style="max-height: 500px; width: auto;">
+            <div class="carousel-caption d-none d-md-block">
+                
+                <h5 style="font-weight: bold; "> Agricultural Laws"</h5>
+                <p style="font-weight: bold"> "Laws that protect the rights and interests of farmers..".</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/cccc.jpg' %}" class="d-block w-100" alt="banner image" style="height: 500px; object-fit: auto;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="font-weight: bold">"Hulume"</h5>
+                <p style="font-weight: bold">"Hulume is an ancient plowing method practiced in the rural areas of Karnataka, where oxen are used to till the land.."</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/veg.jpg' %}" class="d-block w-100" alt="banner image" style="height: 500px; object-fit: auto;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="font-weight: bold; ">"Vegetables"</h5>
+              
+                <p style="font-weight: bold">"Vegetables are an important food that provides the essential nutrients and vitamins needed by your body".</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/tract.jpg' %}" class="d-block w-100" alt="banner image" style="height: 500px; object-fit: auto;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="font-weight: bold">"Tractor "</h5>
+                <p style="font-weight: bold">"The tractor provides enhanced maintenance to the fields and makes plowing easier"</p>
+            </div>
+        </div>
+         <div class="carousel-item">
+            <img src="{% static 'app/images/h.jpg' %}" class="d-block w-100" alt="banner image" style="height: 500px; object-fit: auto;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="font-weight: bold"> "Fruits" </h5>
+                <p style="font-weight: bold">"Fruits are nature’s delicious foods that provide healthy nutrients to the body"</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/chatg.png' %}" class="d-block w-100" alt="banner image" style="height: 500px; object-fit: auto;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="font-weight: bold"> Fruits</h5>
+                <p style="font-weight: bold">"Fruits are nature’s delicious foods that provide healthy nutrients to the body"</p>
+            </div>
+        </div>
+        
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock banner-slider %}
+{% block information %}
+<div class="container-fluid">
+    <div class="row bg-success  text-center p-5 text-white border-bottom shadow">
+        <h1 >🌾Agri-Mithra🌿</h1>
+         <small class="fs-5">  🌿🚜our "Agri-Mithra" website, we sell agricultural products, seeds, farming tools, fertilizers, pesticides, animal feeds, and more. Along with this, we also provide video tutorials to farmers about agricultural practices. 🌿🚜</small>
+    </div>
+</div>
+{% endblock information %}
+<!--product in home pages-->
+<br><br>
+{% block  main-content %}
+<div  class="container">
+    <h2 class="text-align:center  blinking-text" style="font-weight: bold;  w-100"> 🌽🌿 Agricultural Products and Equipments 🌽🌿 </h2>
+
+      <br><br>
+      
+      <div class="row container">
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'category' 'gh'%}">
+                    <div class="goodnesssecont text-center" >
+                        <img src="{% static 'app/images/maize img.jpg' %}" class="img-responsive   center-block" alt=""style="object-fit: cover; width: 60%; height: 60%; border-radius: 3px;">
+                        <p class="mlkpro">Seeds</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+                <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="goodnesssec buttermilk curdbgpro">
+                        <a href="{% url 'category' 'cr'%}">
+                            <div class="goodnesssecont text-center">
+                                <img src="{% static 'app/images/veg img.jpg' %}" class="img-responsive  center-block" alt=""style="object-fit: cover;" >
+                                <p class="mlkpro">Vegetables</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                    <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="goodnesssec buttermilk buttermilk">
+                        <a href="{% url 'category' 'ms'%}">
+                            <div class="goodnesssecont text-center">
+                                <img src="{% static 'app/images/equipment img.jpg' %}" class="img-responsive center-block " alt="">
+                                <p class="mlkpro">Equipments</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        <br><br>
+        <div class="row container">
+            <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+                data-wow-duration="1s" data-wow-delay="0.6s"
+                style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'ls'%}">
+                        <div class="goodnesssecont text-center">
+                            <img src="{% static 'app/images/live img.jpg' %}" class="img-responsive   center-block" alt=""  style="object-fit: cover; width: 100%; height: 300%;">
+                            <p class="mlkpro">Livestocks</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                    <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+                        data-wow-duration="1s" data-wow-delay="0.6s"
+                        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                        <div class="goodnesssec buttermilk curdbgpro">
+                            <a href="{% url 'category' 'pn'%}">
+                                <div class="goodnesssecont text-center">
+                                    <img src="{% static 'app/images/f1.png' %}" class="img-responsive  center-block" alt="" >
+                                    <p class="mlkpro">Animals Feeds</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+                        data-wow-duration="1s" data-wow-delay="0.6s"
+                        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                        <div class="goodnesssec buttermilk buttermilk">
+                            <a href="{% url 'category' 'cz'%}">
+                                <div class="goodnesssecont text-center">
+                                    <img src="{% static 'app/images/pest img.jpg' %}" class="img-responsive center-block " alt=""style="object-fit: cover; width: 60%; height: 100; border-radius: 3px;">
+                                    <p class="mlkpro">Pesticides</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            </div>
+        
+</div>
+
+<br/><br/>
+{% endblock main-content %}
+
+{% block content %}
+<div  class="container  " >
+    <h2 class="text-center blinking-text" style="font-weight: bold; w-100"> 🌽🌿 Jnanapeetha Awardees of Kannada 🌽🌿 </h2>
+
+      <br><br>
+      <div class="row container">
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'kannada'%}">
+                    <div class="goodnesssecont text-center">
+                        <img src="{% static 'app/images/kuvempu.jpg' %}" class="img-responsive   center-block" alt="" style="width: 100%; height: 60; border-radius: 10px;">
+                        <p class="mlkpro">Kuvempu</p>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+        <br>
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none; ">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'kannada'%}">
+                    <div class="goodnesssecont text-center">
+                        <img src="{% static 'app/images/dara.jpg' %}" class="img-responsive   center-block" alt="" style="width: 63%; height: 60; border-radius: 10px;">
+                        <p class="mlkpro " style="font-size:20px; ">Dattatreya Ramachandra Bendre</p>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'kannada'%}">
+                    <div class="goodnesssecont text-center">
+                        <img src="{% static 'app/images/shiva.jpg' %}" class="img-responsive   center-block" alt="">
+                        <p class="mlkpro"style="font-size:20px;" >Shivaram Karanth</p>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+        <br><br>
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'kannada'%}">
+                    <div class="goodnesssecont text-center">
+                        <img src="{% static 'app/images/masti.jpg' %}" class="img-responsive   center-block" alt="">
+                        <p class="mlkpro">Masti Venkatesha Iyengar</p>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'kannada'%}">
+                    <div class="goodnesssecont text-center">
+                        <img src="{% static 'app/images/vk.jpg' %}" class="img-responsive   center-block" alt="">
+                        <p class="mlkpro">V. K. Gokak</p>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;" >
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'kannada'%}">
+                    <div class="goodnesssecont text-center">
+                        <img src="{% static 'app/images/ur.jpg' %}" class="img-responsive   center-block" alt="" >
+                        <p class="mlkpro">U. R. Ananthamurthy</p>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+    
+        
+{% endblock content %}
+
+{%block river%}
+<div  class="container py-4">
+    <h2 class="text-center blinking-text" style="font-weight: bold; w-100">🌊 Famous Rivers of Karnataka 🏞️ </h2>
+      <br><br>
+      <div class="row container">
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'river'%}">
+                    <div class="goodnesssecont text-center">
+                        <img src="{% static 'app/images/ka.jpg' %}" class="img-responsive   center-block" alt="">
+                        <p class="mlkpro">Kaveri River</p>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'river'%}">
+                    <div class="goodnesssecont text-center">
+                        <img src="{% static 'app/images/kaveri.jpg' %}" class="img-responsive   center-block" alt="">
+                        <p class="mlkpro">Tungabhadra River</p>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+        <br>
+        <div class="col-md-4 col-sm-4 ml-go wow fadeInUp"
+            data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'river'%}">
+                    <div class="goodnesssecont text-center">
+                        <img src="{% static 'app/images/al.jpg' %}" class="img-responsive   center-block" alt="">
+                        <p class="mlkpro">Krishna River</p>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+        </div>
+{% endblock river %}
+<!-- Terms and Conditions Section -->
+<br><br>
+<!-- Terms and Conditions Section -->
+<!-- Terms and Conditions Section -->
+{% block terms-conditions %}
+<div class="container py-5">
+    <h2 class="text-center text-center blinking-text" style="font-weight: bold; color: #3a3a3a;">📜 Terms and Conditions 📜</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <p style="font-size: 16px; font-weight: bold; color: #333;"><span style="color: #007bff;">1. Delivery:</span> All ordered items will be delivered within 3 days from the order date. vegetable and fruits will bedelivered within a day of order</p>
+
+            <p style="font-size: 16px; font-weight: bold; color: #333;"><span style="color: #007bff;">2. Returns:</span> Items can be returned within 7 days of receipt. However, live stocks and other fresh products cannot be returned.</p>
+        </div>
+    </div>
+</div>
+{% endblock terms-conditions %}
+<!-- Contact Us Section -->
+{% block contact-us %}
+<div class="container py-4">
+    <h2 class="text-center text-center blinking-text" style="font-weight: bold; color: #3a3a3a;">📞 Contact Us 📞</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <p style="font-size: 16px; font-weight: bold; color: #333;">
+                <span style="color: #007bff;">For Buying or Selling Agricultural Items:</span> 
+                Please contact us through the details below:
+            </p>
+            <ul style="list-style-type: none; padding-left: 0; font-size: 16px; color: #333;">
+                <li><strong>Phone Number:</strong> +91 123 456 7890</li>
+                <li><strong>Email:</strong> contact@agrimithra.com</li>
+            </ul>
+            <p style="font-size: 16px; font-weight: bold; color: #333;">
+                Feel free to reach out to us for any enquiries related to agricultural items or services.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock contact-us %}
+
+
+
+
+

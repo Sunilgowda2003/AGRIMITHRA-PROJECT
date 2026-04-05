@@ -1,0 +1,189 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Path of Agricultural Development in India{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <h1 class="text-center text-success fw-bold ">🌾 Path of Agricultural Development in India 🚜</h1>
+    
+    <marquee class="bg-warning text-dark p-2 fs-5">⏳ Agricultural Revolutions in India and Their Impact! 🌍</marquee>
+    
+    <div class="timeline">
+        <div class="timeline-container left">
+            <div class="content">
+                <h2>🌿 Transformation of Livelihood: From Hunting to Agriculture (25000 BCE - 15000 BCE)</h2>
+                <p>Early humans hunted for food and gathered forest herbs. Over time, due to changes in climate and environment, they began to observe naturally growing plants and gradually learned the techniques of sowing and crop cultivation.</p>
+                
+                <p><strong>Tools Used:</strong> Stone arrows, wooden plows, manual sowing, and canal irrigation
+.</p>
+                <img src="{% static 'app/images/img banner3.jpg' %}" class="img-fluid rounded" alt="Hunting to Farming Transition">
+            </div>
+        </div>
+        <div class="timeline-container right">
+            <div class="content">
+                <h2>🌱Early Agvriculture (9000 BCE - 2500 BCE)</h2>
+                <p>Early agriculture in India began along the banks of the Indus River. In the Harappan civilization, crops like wheat, barley, cotton, and sesame were cultivated.
+</p>
+                <p><strong>Tools Used</strong> Manual plowing, canal irrigation, and farming with the help of oxen.
+.</p>
+                <img src="{% static 'images/early_agriculture_india.jpg' %}" class="img-fluid rounded" alt="Early Agriculture">
+            </div>
+        </div>
+        <div class="timeline-container left">
+            <div class="content">
+                <h2>🏺 Ancient Agriculture(1500 BCE - 500 CE)</h2>
+                <p>In Vedic period agriculture, monsoon rain-based farming was predominant. Farmers cultivated wheat, rice, and cotton.
+.</p>
+                <p><strong>Tools Used:</strong> Rope canal irrigation, rope-drawn bullock carts, and handheld iron tools.</p>
+                <img src="{% static 'images/ancient_indian_agriculture.jpg' %}" class="img-fluid rounded" alt="Ancient Agriculture">
+            </div>
+        </div>
+        <div class="timeline-container right">
+            <div class="content">
+                <h2>🏰 Medieval Agriculture (1200 CE - 1700 CE)</h2>
+                <p>During the Sultanate and Mughal empires, the land revenue system was developed. New fruit and flower crops were introduced.
+</p>
+                <p><strong>Tools Used:</strong> Tank irrigation, fieldwork with the help of oxen, and tools made of bronze and iron.</p>
+                <img src="{% static 'images/medieval_agriculture.jpg' %}" class="img-fluid rounded" alt="Medieval Agriculture">
+            </div>
+        </div>
+        <div class="timeline-container left">
+            <div class="content">
+                <h2>🇮🇳 Colonial Agriculture (1757 CE - 1947 CE)</h2>
+                <p>During British rule<strong>Cash crops</strong> (Coffee, coconut, cotton) cultivation was encouraged to increase. Increased taxes on farmers became a problem.</p>
+                <p><strong>Tools Used:</strong> Horse carts, iron tools, and the very first railway transportation for market connectivity</p>
+                <img src="{% static 'images/colonial_agriculture.jpg' %}" class="img-fluid rounded" alt="Colonial Agriculture">
+            </div>
+        </div>
+        <div class="timeline-container right">
+            <div class="content">
+                <h2>🌾 Green Revolution (1960 CE - 1990 CE)</h2>
+                <p><strong>MS Swaminathan</strong> Under his guidance, the use of high-yield seeds, chemical fertilizers, and irrigation increased significantly in India.</p>
+                <p><strong>Tools Used:</strong> Tractors, tube well irrigation, hybrid seeds, and enriched fertilizers.</p>
+                <img src="{% static 'images/green_revolution_india.jpg' %}" class="img-fluid rounded" alt="Green Revolution India">
+            </div>
+        </div>
+        <div class="timeline-container left">
+            <div class="content">
+                <h2>🤖 Modern Agriculture (2000 CE - Present)</h2>
+                <p>Smart technologies have entered agriculture. Drone technology, AI (Artificial Intelligence), IoT, and sustainable farming practices are growing.</p>
+                <p><strong>Tools Used:</strong>Drones, AI-based weather forecasting technology, IoT-based irrigation, and smart tractors.</p>
+                <img src="{% static 'images/smart_farming_india.jpg' %}" class="img-fluid rounded" alt="Smart Farming India">
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-5">
+        <a href="https://en.wikipedia.org/wiki/History_of_agriculture" class="btn btn-lg btn-success">🚀Learn more about the future of agriculture</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(to right, #81c784, #c8e6c9);
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 50px auto;
+    }
+
+    .timeline-container {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+    }
+
+    .left { left: 0; }
+    .right { left: 50%; }
+    
+    .content {
+        padding: 20px;
+        background: #3e8e41;  /* Dark Green Background for Cards */
+        border-radius: 20px;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+        border: none;
+        color: #ffffff;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    }
+
+    .content:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-container img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-success {
+        background-color: #388e3c;
+        border-color: #2c6e49;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn-success:hover {
+        background-color: #2c6e49;
+    }
+
+    .card-style {
+        transition: all 0.4s ease-in-out;
+    }
+
+    .animate__fadeInLeft {
+        animation: fadeInLeft 1s;
+    }
+
+    .animate__fadeInRight {
+        animation: fadeInRight 1s;
+    }
+
+    .animate__zoomIn {
+        animation: zoomIn 0.5s;
+    }
+
+    @keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeInRight {
+        0% {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes zoomIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .timeline-container { width: 100%; left: 0; }
+    }
+</style>
+    {% endblock main-content %}
