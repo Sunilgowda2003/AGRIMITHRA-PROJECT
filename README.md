@@ -63,7 +63,7 @@ The system follows a **Django MVC architecture**:
 ---
 
 ## 🔄 Workflow
-1. 📝 User Registration / Login  
+1. 📝 User Registration / Login 
 2. 🔍 Browse Products  
 3. 🛒 Add to Cart  
 4. 💳 Checkout & Payment  
