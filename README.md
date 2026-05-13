@@ -3,7 +3,7 @@
 ## 📌 Project Overview
 AGRIMITHRA is a **Django-based agricultural platform** designed to provide farmers with a complete digital solution for modern farming needs.
 
-It combines **E-commerce, AI assistance, and educational resources** to improve productivity, accessibility, and sustainability in agriculture.
+It combines **E-commerce, AI assistance, and educational resources** to improve productivity, accessibility, and sustainability in agriculture. 
 
 ---
 
