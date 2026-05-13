@@ -8,7 +8,7 @@ It combines **E-commerce, AI assistance, and educational resources** to improve 
 ---
 
 ## 🎯 Objectives
-- 🌾 Provide easy access to agricultural products 
+- 🌾 Provide easy access to agricultural products
 - 💰 Eliminate middlemen and improve farmer profits
 - 🤖 Offer AI-based guidance and expert advice
 - 🌍 Promote sustainable farming practices
