@@ -1,0 +1,168 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Agricultural Experts from India and Karnataka{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <h1 class="text-center text-success fw-bold">🔬 Agricultural Scientists from India and Karnataka🌾</h1>
+
+    <marquee class="bg-success text-white p-2 fs-5 mb-4 rounded">🇮🇳 Champions of India's Green Revolution and Scientists Who Illuminated Agriculture in Karnataka"
+Let me know if you'd like a more formal or simplified version! 🌱</marquee>
+
+    <p class="text-center mb-4 fs-5 text-dark">Relevant information about Indian and Karnataka scientists who have made significant contributions in the field of agriculture</p>
+
+    <div class="row g-4">
+        <!-- National Scientists -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow border-success">
+                <img src="{% static 'app/images/swami.jpg' %}" 
+                     onerror="this.src='{% static 'app/images/placeholder.jpg' %}'" 
+                     class="card-img-top" 
+                     alt="MS Swaminathan">
+                <div class="card-body">
+                    <h5 class="card-title text-success"> Dr. M. S. Swaminathan</h5>
+                    <p class="card-text">The Father of the Green Revolution in India. Contributed to increasing agricultural production through high-quality seeds, chemical fertilizers, and irrigation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow border-success">
+                <img src="{% static 'app/images/kur.jpg' %}" 
+                     onerror="this.src='{% static 'app/images/placeholder.jpg' %}'" 
+                     class="card-img-top" 
+                     alt="Verghese Kurien">
+                <div class="card-body">
+                    <h5 class="card-title text-success">Dr. Varghese Kurian.</h5>
+                    <p class="card-text">"The Father of the 'White Revolution.' Made India self-sufficient in milk production through Operation Flood.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow border-success">
+                <img src="{% static 'app/images/rich.jpg' %}" 
+                     onerror="this.src='{% static 'app/images/placeholder.jpg' %}'" 
+                     class="card-img-top" 
+                     alt="RH Richharia">
+                <div class="card-body">
+                    <h5 class="card-title text-success">Dr. R. H. Richharia.</h5>
+                    <p class="card-text">Expert in Indian soil conservation. Has done significant work to preserve local varieties.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Karnataka Scientists -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow border-warning">
+                <img src="{% static 'app/images/sub.jpg' %}" 
+                     onerror="this.src='{% static 'app/images/placeholder.jpg' %}'" 
+                     class="card-img-top" 
+                     alt="Dr. R. Dwarakinath">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">Dr. Subrahmanyam Nagarajan.</h5>
+                    <p class="card-text">A key scientist of the Wheat Revolution in India. Played a major role in developing rust-resistant wheat varieties.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow border-warning">
+                <img src="{% static 'app/images/maha.jpg' %}" 
+                     onerror="this.src='{% static 'app/images/placeholder.jpg' %}'" 
+                     class="card-img-top" 
+                     alt="Dr. M. Mahadevappa">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">Dr. M. Mahadevappa.</h5>
+                    <p class="card-text">Contributed to the cultivation of high-yielding rice varieties. Former Vice-Chancellor of Agricultural University, Dharwad.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow border-warning">
+                <img src="{% static 'app/images/mari.jpg' %}" 
+                     onerror="this.src='{% static 'app/images/placeholder.jpg' %}'" 
+                     class="card-img-top" 
+                     alt="Dr. M.H. Marigowda">
+                <div class="card-body">
+                    <h5 class="card-title text-warning"> Dr. M. H. Marigowda.</h5>
+                    <p class="card-text">The person who scientifically developed horticulture in Karnataka. Considered the 'Father of Horticulture' for his contributions to the field.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="https://en.wikipedia.org/wiki/Indian_agricultural_research_system" class="btn btn-success btn-lg">📚 ಇನ್ನಷ್ಟು ವಿಜ್ಞಾನಿಗಳ ಬಗ್ಗೆ ಓದಿ</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(to right, #f1f8e9, #dcedc8);
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+        border-radius: 16px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: #ffffff;
+        border: 2px solid #e0e0e0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 220px; /* Ensuring same height */
+        object-fit: contain; /* Ensures full image is visible */
+        background-color: #fff; /* White background for smaller images */
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        display: block;
+        padding: 5px; /* Adds slight padding to avoid tight fit */
+    }
+    
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+        color: #444;
+        margin-top: 0.5rem;
+    }
+
+    .border-success {
+        border-left: 6px solid #28a745 !important;
+    }
+
+    .border-warning {
+        border-left: 6px solid #ffc107 !important;
+    }
+
+    .btn-success {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        transition: background 0.3s ease;
+    }
+
+    .btn-success:hover {
+        background: #218838;
+    }
+</style>
+{% endblock main-content %}

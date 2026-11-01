@@ -1,0 +1,627 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}MitraBot{% endblock title %}
+
+{% block main-content %}
+
+<style>
+    /* PAGE BACKGROUND */
+    body {
+        background: linear-gradient(135deg, #a5d6a7, #388e3c);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* CHAT WRAPPER */
+    .chat-wrapper {
+        max-width: 780px;
+        margin: 30px auto;
+        padding: 25px;
+        background: #ffffffcc;
+        border-radius: 18px;
+        border: 1px solid #a3d9a5;
+        box-shadow: 0 15px 30px rgba(0, 100, 0, 0.15);
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .chat-wrapper h1 {
+        text-align: center;
+        font-size: 2.4rem;
+        color: #2e7d32;
+        font-family: 'Georgia', serif;
+        margin-bottom: 6px;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-style: italic;
+        color: #4e944f;
+        font-size: 1rem;
+        margin-bottom: 18px;
+    }
+
+    /* CHAT BOX */
+    #chat-box {
+        height: 350px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 15px;
+        background-color: #f3fdf4;
+        margin-bottom: 10px;
+        scroll-behavior: smooth;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* MESSAGES */
+    .message {
+        margin: 12px 0;
+        padding: 10px 14px;
+        border-radius: 12px;
+        animation: slideIn 0.3s ease-in-out;
+        max-width: 85%;
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
+        font-size: 0.94rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .user-message {
+        background: linear-gradient(to right, #c1eaff, #a5d3f7);
+        border-left: 5px solid #2196f3;
+        margin-left: auto;
+    }
+
+    .assistant-message {
+        background: linear-gradient(to right, #e8f7e8, #c1f0c1);
+        border-left: 5px solid #43a047;
+        margin-right: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    .message-header {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 0.85rem;
+        color: #388e3c;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+        background: #eaf0e3;
+        padding: 10px;
+        font-family: monospace;
+        border-radius: 6px;
+        border-left: 4px solid #9ccc65;
+        margin-top: 8px;
+        font-size: 0.9rem;
+        position: relative;
+    }
+
+    .code-block pre {
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        margin: 25px 0 0;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        font-size: 11px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .copy-btn:hover {
+        background-color: #5a6268;
+    }
+
+    /* USER INPUT */
+    #user-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #bdbdbd;
+        border-radius: 8px;
+        font-size: 15px;
+        margin-bottom: 8px;
+        transition: border 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    #user-input:focus {
+        outline: none;
+        border: 1px solid #4caf50;
+        box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    }
+
+    #user-input:disabled {
+        background: #eeeeee;
+        cursor: not-allowed;
+    }
+
+    /* SEND BUTTON */
+    #send-button {
+        width: 100%;
+        padding: 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #send-button:hover {
+        background-color: #388e3c;
+    }
+
+    #send-button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    /* LOADING SPINNER */
+    #spinner {
+        display: none;
+        margin: 10px auto;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #4caf50;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+    }
+
+    /* STATUS TEXT */
+    #status-message {
+        display: none;
+        text-align: center;
+        color: #388e3c;
+        font-size: 13px;
+        margin: 5px 0;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(10px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 600px) {
+        .chat-wrapper {
+            margin: 10px;
+            padding: 16px;
+        }
+
+        .chat-wrapper h1 {
+            font-size: 2rem;
+        }
+
+        #chat-box {
+            height: 280px;
+        }
+
+        #user-input,
+        #send-button {
+            font-size: 14px;
+        }
+
+        .message {
+            max-width: 95%;
+        }
+    }
+</style>
+
+
+<!-- MITRABOT INTERFACE -->
+
+<div class="chat-wrapper">
+
+    <h1>🌱 MitraBot</h1>
+
+    <p class="subtitle">
+        Your Farming Chat Assistant – 🧠😊 Intelligent Friend
+    </p>
+
+    <div id="chat-box" aria-live="polite"></div>
+
+    <div id="spinner" aria-label="Loading"></div>
+
+    <div id="status-message">
+        MitraBot is preparing your answer...
+    </div>
+
+    <input
+        type="text"
+        id="user-input"
+        placeholder="Type your message..."
+        autocomplete="off"
+        aria-label="Enter your message"
+    >
+
+    <button id="send-button" type="button">
+        Submit
+    </button>
+
+</div>
+
+
+<!-- JQUERY -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<!-- MITRABOT JAVASCRIPT -->
+
+<script>
+$(document).ready(function () {
+
+    const chatBox = $('#chat-box');
+    const userInput = $('#user-input');
+    const sendButton = $('#send-button');
+    const spinner = $('#spinner');
+    const statusMessage = $('#status-message');
+
+    let isProcessing = false;
+    let activeRequest = null;
+
+
+    // BUTTON CLICK
+    sendButton.on('click', sendMessage);
+
+
+    // ENTER KEY
+    userInput.on('keydown', function (e) {
+
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+        }
+
+    });
+
+
+    // SEND MESSAGE
+    function sendMessage() {
+
+        const message = userInput.val().trim();
+
+        if (!message || isProcessing) {
+            return;
+        }
+
+        isProcessing = true;
+
+
+        // DISPLAY USER MESSAGE
+        appendMessage('user-message', 'you:', message);
+
+
+        // SHOW LOADING
+        spinner.show();
+        statusMessage.show();
+
+        sendButton
+            .prop('disabled', true)
+            .text('Processing...');
+
+        userInput
+            .prop('disabled', true)
+            .val('');
+
+        scrollChatToBottom();
+
+
+        // AJAX REQUEST
+        activeRequest = $.ajax({
+
+            type: 'POST',
+
+            url: '{% url "chat" %}',
+
+            data: {
+                message: message,
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+
+            dataType: 'json',
+
+            // Browser-side timeout: 30 seconds
+            timeout: 30000,
+
+
+            // SUCCESS
+            success: function (data) {
+
+                if (!data || !data.response) {
+
+                    displayError(
+                        'MitraBot returned an empty response. Please try again.'
+                    );
+
+                    return;
+                }
+
+                const formattedResponse =
+                    formatResponse(data.response);
+
+                chatBox.append(`
+                    <div class="message assistant-message">
+                        <div class="message-header">
+                            ರೈತವಾಣಿ:
+                        </div>
+                        ${formattedResponse}
+                    </div>
+                `);
+
+                scrollChatToBottom();
+            },
+
+
+            // ERROR
+            error: function (xhr, textStatus, errorThrown) {
+
+                console.error('MitraBot AJAX Error:', {
+                    status: xhr.status,
+                    textStatus: textStatus,
+                    error: errorThrown,
+                    response: xhr.responseText
+                });
+
+                let errorMessage =
+                    'Unable to generate a response. Please try again.';
+
+                if (textStatus === 'timeout') {
+
+                    errorMessage =
+                        'MitraBot took too long to respond. Please try again.';
+
+                } else if (xhr.responseJSON && xhr.responseJSON.error) {
+
+                    errorMessage = xhr.responseJSON.error;
+
+                } else if (xhr.status === 0) {
+
+                    errorMessage =
+                        'Unable to connect to the server. Check your internet connection.';
+
+                } else if (xhr.status === 403) {
+
+                    errorMessage =
+                        'Gemini API permission denied. Check your API key.';
+
+                } else if (xhr.status === 429) {
+
+                    errorMessage =
+                        'Gemini API quota exceeded. Please try again later.';
+
+                } else if (xhr.status === 503) {
+
+                    errorMessage =
+                        'Gemini service is temporarily unavailable. Please try again shortly.';
+
+                }
+
+                displayError(errorMessage);
+            },
+
+
+            // ALWAYS EXECUTES AFTER REQUEST COMPLETES
+            complete: function () {
+
+                stopLoading();
+
+            }
+
+        });
+
+    }
+
+
+    // STOP LOADING
+    function stopLoading() {
+
+        spinner.hide();
+        statusMessage.hide();
+
+        sendButton
+            .prop('disabled', false)
+            .text('Submit');
+
+        userInput
+            .prop('disabled', false)
+            .focus();
+
+        isProcessing = false;
+        activeRequest = null;
+
+        scrollChatToBottom();
+    }
+
+
+    // APPEND MESSAGE
+    function appendMessage(className, heading, message) {
+
+        const messageElement = $('<div>')
+            .addClass('message')
+            .addClass(className);
+
+        const header = $('<div>')
+            .addClass('message-header')
+            .text(heading);
+
+        const content = $('<div>')
+            .text(message);
+
+        messageElement.append(header, content);
+        chatBox.append(messageElement);
+
+        scrollChatToBottom();
+    }
+
+
+    // DISPLAY ERROR
+    function displayError(message) {
+
+        appendMessage(
+            'assistant-message',
+            'MitraBot:',
+            message
+        );
+
+    }
+
+
+    // FORMAT AI RESPONSE
+    function formatResponse(text) {
+
+        if (typeof text !== 'string') {
+            return '';
+        }
+
+        const parts = text.split(/```/);
+
+        let html = '';
+
+        parts.forEach(function (part, index) {
+
+            if (index % 2 === 0) {
+
+                if (part.trim()) {
+                    html += `<div>${formatText(part)}</div>`;
+                }
+
+            } else {
+
+                // Remove optional language label
+                const code = part.replace(
+                    /^[a-zA-Z0-9_+-]+\n/,
+                    ''
+                ).trim();
+
+                html += `
+                    <div class="code-block">
+
+                        <button
+                            type="button"
+                            class="copy-btn">
+                            Copy
+                        </button>
+
+                        <pre>${escapeHtml(code)}</pre>
+
+                    </div>
+                `;
+
+            }
+
+        });
+
+        return html;
+    }
+
+
+    // FORMAT NORMAL TEXT
+    function formatText(text) {
+
+        return escapeHtml(text)
+            .replace(/\n/g, '<br>');
+
+    }
+
+
+    // ESCAPE HTML
+    function escapeHtml(str) {
+
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+
+    }
+
+
+    // SCROLL TO BOTTOM
+    function scrollChatToBottom() {
+
+        chatBox.scrollTop(
+            chatBox[0].scrollHeight
+        );
+
+    }
+
+
+    // COPY CODE
+    chatBox.on('click', '.copy-btn', function () {
+
+        const button = $(this);
+
+        const code = button
+            .siblings('pre')
+            .text();
+
+        if (!navigator.clipboard) {
+
+            button.text('Copy unavailable');
+            return;
+
+        }
+
+        navigator.clipboard.writeText(code)
+
+            .then(function () {
+
+                button.text('Copied!');
+
+                setTimeout(function () {
+                    button.text('Copy');
+                }, 2000);
+
+            })
+
+            .catch(function () {
+
+                button.text('Copy failed');
+
+            });
+
+    });
+
+
+});
+</script>
+
+{% endblock %}

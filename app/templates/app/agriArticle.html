@@ -1,0 +1,272 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Farmer Rights & Legal Protections{% endblock title %}
+
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(to bottom right, #a5d6a7, #81c784); /* Soft gradient background */
+        color: #1b4332;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .laws-page {
+        padding: 30px 20px;
+    }
+
+    .container {
+        width: 90%;
+        margin: auto;
+        max-width: 1100px;
+    }
+
+    marquee {
+        font-size: 26px;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(to right, #66bb6a, #4caf50); /* Green gradient */
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .text-center {
+        text-align: center;
+        font-size: 20px;
+        color: #2d6a4f;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }
+
+    .section {
+        background: #f1f8e9; /* Soft light green background */
+        padding: 25px;
+        margin-bottom: 30px;
+        border-radius: 15px;
+        border: 2px solid #66bb6a;
+        box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 128, 0, 0.3);
+    }
+
+    h3 {
+        color: #388e3c;
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: 700;
+        border-bottom: 2px solid #81c784;
+        padding-bottom: 10px;
+    }
+
+    p, ul li {
+        font-size: 16px;
+        color: #1b4332;
+        line-height: 1.7;
+    }
+
+    ul {
+        padding-left: 20px;
+        margin-top: 8px;
+    }
+
+    iframe {
+        margin-top: 20px;
+        border-radius: 12px;
+        border: 2px solid #66bb6a;
+        width: 100%;
+        max-width: 650px; /* Reduced width but kept it visually appealing */
+        height: 360px; /* Slightly increased height for better view */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 0 15px rgba(116, 198, 157, 0.4);
+    }
+
+    .icon {
+        font-weight: bold;
+        color: #4caf50;
+    }
+
+    .section ul {
+        margin-top: 10px;
+    }
+
+    .section ul li {
+        margin-bottom: 8px;
+        list-style: circle;
+    }
+    .btn-lg {
+        font-size: 1.3rem;
+        border-radius: 30px;
+        padding: 12px 25px;
+        transition: all 0.3s ease-in-out;
+        background: #28a745;
+        border: none;
+        color: white;
+    }
+    .btn-lg:hover {
+        box-shadow: 0px 5px 15px rgba(40, 167, 69, 0.5);
+        transform: translateY(-3px);
+    }
+</style>
+
+
+<div class="container laws-page">
+        <marquee behavior="scroll" direction="left" class="blinking">🌾 Farmer Rights & Legal Protections ⚖️ - Know Your Rights & Legal Pathways! 🚜</marquee>
+        <p class="text-center">Know your legal rights as a farmer and how to seek legal recourse.</p>
+
+
+    <div class="section">
+        <h3>1. Agricultural Produce Market Committee (APMC) Acts</h3>
+        <p><span class="icon">✅ Use in Court:</span> If farmers face restrictions on selling their produce outside APMC markets or suffer from unfair pricing and commissions.</p>
+        <p><span class="icon">✅ Key Rights:</span></p>
+        <ul>
+            <li>Farmers have the right to sell outside APMC mandis in states where direct trade is allowed.</li>
+            <li>Protection against middlemen who exploit farmers by fixing lower prices.</li>
+        </ul>
+        <p><span class="icon">✅ Court Strategy:</span></p>
+        <ul>
+            <li>File a complaint with the State APMC Board or District Collector.</li>
+            <li>Approach the Consumer Forum for price manipulation.</li>
+            <li>File a writ petition in the High Court if rights are violated.</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/GHPaIemweFc?si=cnoBplIlDnSuuKsO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="section">
+        <h3>2. Protection of Plant Varieties and Farmers’ Rights Act, 2001</h3>
+        <p><span class="icon">✅ Use in Court:</span> If a seed company falsely claims ownership of a traditional seed variety or restricts farmers from saving and using seeds.</p>
+        <p><span class="icon">✅ Key Rights:</span></p>
+        <ul>
+            <li>Farmers can save, use, exchange, and sell farm-saved seeds (except branded ones).</li>
+            <li>Protection against private companies imposing unfair restrictions on farmers.</li>
+        </ul>
+        <p><span class="icon">✅ Court Strategy:</span></p>
+        <ul>
+            <li>File a complaint with the Plant Varieties Protection Authority (PPVFR Authority).</li>
+            <li>If rights are violated, take legal action in High Court.</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/KGTvG9FqPSo?si=f5rRtQtRNCy4ZvHp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="section">
+        <h3>3. Land Acquisition Act, 2013</h3>
+        <p><span class="icon">✅ Use in Court:</span> If land is acquired without fair compensation or consent.</p>
+        <p><span class="icon">✅ Key Rights:</span></p>
+        <ul>
+            <li>Compensation must be four times the market value in rural areas and two times in urban areas.</li>
+            <li>80% landowners’ consent is required for private projects, and 70% for public-private partnership (PPP) projects.</li>
+        </ul>
+        <p><span class="icon">✅ Court Strategy:</span></p>
+        <ul>
+            <li>File a complaint with the District Collector.</li>
+            <li>If the issue is unresolved, file a case in the High Court or Supreme Court.</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/gQUIPyOqwCA?si=HSSazERmgGFOJCX6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="section">
+        <h3>4. Essential Commodities Act, 1955</h3>
+        <p><span class="icon">✅ Use in Court:</span> If traders hoard food grains, causing artificial price drops that harm farmers.</p>
+        <p><span class="icon">✅ Key Rights:</span></p>
+        <ul>
+            <li>The government can set stock limits and prevent hoarding.</li>
+            <li>Farmers can take legal action against unfair market practices.</li>
+        </ul>
+        <p><span class="icon">✅ Court Strategy:</span></p>
+        <ul>
+            <li>File a complaint with the Consumer Forum.</li>
+            <li>If necessary, move to the High Court for policy-related issues.</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/caEi4-SMUSs?si=xERya5FtxzWmYNUg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="section">
+        <h3>5. Environmental Protection Act, 1986 & The Insecticides Act, 1968</h3>
+        <p><span class="icon">✅ Use in Court:</span> If pollution or excessive pesticide use damages farmland and crops.</p>
+        <p><span class="icon">✅ Key Rights:</span></p>
+        <ul>
+            <li>Farmers can demand action against industries polluting their farmland.</li>
+            <li>Right to compensation for crop losses due to environmental hazards.</li>
+        </ul>
+        <p><span class="icon">✅ Court Strategy:</span></p>
+        <ul>
+            <li>File a case with the State Pollution Control Board.</li>
+            <li>If unresolved, approach the National Green Tribunal (NGT).</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Bcin0sXfxvc?si=Loj0E9f41ZynlX0E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="section">
+        <h3>6.The Forest Rights Act, 2006</h3>
+        <p><span class="icon">✅ Use in Court:</span> If tribal farmers or forest dwellers are evicted from traditional land..</p>
+        <p><span class="icon">✅ Key Rights:</span></p>
+        <ul>
+            <li>Farmers can claim legal ownership over forest land used for agriculture</li>
+            <li>Protection against forced eviction.</li>
+        </ul>
+        <p><span class="icon">✅ Court Strategy:</span></p>
+        <ul>
+            <li>File a complaint with the Gram Sabha (Village Council).</li>
+            <li>If denied rights, approach the District Committee or High Court.</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-MRGO3e_is0?si=i7b0J_Y2UyY_NOm_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="section">
+        <h3>7. Consumer Protection Act, 2019</h3>
+        <p><span class="icon">✅ Use in Court:</span>  If farmers receive faulty seeds, fertilizers, or pesticides that cause crop failure.</p>
+        <p><span class="icon">✅ Key Rights:</span></p>
+        <ul>
+            <li>Right to a refund or replacement of defective agricultural product</li>
+            <li>Farmers can demand compensation for losses.</li>
+        </ul>
+        <p><span class="icon">✅ Court Strategy:</span></p>
+        <ul>
+            <li>File a case in the Consumer Court (District, State, or National level)..</li>
+            <li>If denied rights, approach the District Committee or High Court.</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MEReFSym7z8?si=ZEIht9uPccGiTzAz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="section">
+        <h3>8.Minimum Wages Act, 1948 & MGNREGA, 2005</h3>
+        <p><span class="icon">✅ Use in Court:</span>  If farm laborers are underpaid or denied employment benefits.</p>
+        <p><span class="icon">✅ Key Rights:</span></p>
+        <ul>
+            <li>Minimum wages are fixed for agricultural laborers.</li>
+            <li>Guaranteed 100 days of work under the Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA).</li>
+        </ul>
+        <p><span class="icon">✅ Court Strategy:</span></p>
+        <ul>
+            <li>File a case in the Labour Court or District Magistrate’s Office...</li>
+            <li>If denied rights, approach the District Committee or High Court.</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xg43pudL1Ko?si=176DolpcptnoxqMd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="section">
+        <h3>9.The Fertilizer Control Order, 1985</h3>
+        <p><span class="icon">✅ Use in Court:</span>  If farmers receive adulterated or poor-quality fertilizers..</p>
+        <p><span class="icon">✅ Key Rights:</span></p>
+        <ul>
+            <li>Only government-approved fertilizers can be sold..</li>
+            <li>Farmers can take action against fake fertilizer sellers..</li>
+        </ul>
+        <p><span class="icon">✅ Court Strategy:</span></p>
+        <ul>
+            <li>Move to the Consumer Court if losses occur due to fake products.</li>
+            <li>If denied rights, approach the District Committee or High Court.</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_iG1YIhXpSc?si=Ou_AProkAHTDMCbp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+     <div class="text-center mb-4">
+        <a href="https://kslsa.kar.nic.in/aboutus.html" class="btn btn-lg">🔍ಉಚಿತ ವಕೀಲ ಸಮಾಲೋಚನೆ ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ</a>
+    </div>
+</div>
+
+{% endblock %}
+

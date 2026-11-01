@@ -1,0 +1,188 @@
+
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+
+{% block main-content %}
+<style>
+    body {
+        background: linear-gradient(to right, #81c784, #c8e6c9); /* Fresh green gradient */
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        margin-top: 50px;
+        padding: 20px;
+        max-width: 1200px;
+    }
+
+    .row {
+        background-color: #ffffff; /* White background for the product section */
+        border-radius: 15px; /* Rounded corners for a clean design */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        padding: 40px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center; /* Center content vertically */
+        justify-content: space-between; /* Space between image and text */
+    }
+
+    .img2 img {
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow around the image */
+        width: 100%;
+        height: 100%;
+    }
+
+    .productdetail {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        max-width: 600px;
+    }
+
+    .productdetail h1 {
+        font-family: 'Georgia', serif;
+        font-size: 40px; /* Reduced font size for the product title */
+        color: #2e6a47; /* Dark green for the product title */
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 5px; /* Reduced margin between title and price */
+    }
+
+    .productdetail h5 {
+        font-size: 28px;
+        color: #d35400; /* Orange color for discounted price */
+        font-weight: bold;
+        margin-bottom: 2px; /* Further reduced gap between price and description */
+    }
+
+    .productdetail small del {
+        font-size: 20px;
+        color: #7f8c8d; /* Muted gray for the original price */
+    }
+
+    .productdetail h4 {
+        font-size: 24px;
+        color: #27ae60; /* Green for product description header */
+        margin-top: 3px; /* Further reduced margin between price and description */
+        font-weight: bold;
+    }
+
+    .productdetail ul {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 18px;
+        color: #2c3e50;
+        list-style-type: disc;
+        margin-left: 20px;
+        line-height: 1.8;
+    }
+
+    .productdetail button, .productdetail a {
+        font-size: 18px;
+        border-radius: 25px;
+        padding: 12px 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        margin-top: 15px;
+    }
+
+    .productdetail button:hover, .productdetail a:hover {
+        transform: translateY(-3px); /* Slightly lift buttons on hover */
+    }
+
+    .productdetail .btn-primary {
+        background-color: #3498db; /* Blue button for "Add to Cart" */
+        border-color: #3498db;
+    }
+
+    .productdetail .btn-primary:hover {
+        background-color: #2980b9;
+    }
+
+    .productdetail .btn-warning {
+        background-color: #f39c12; /* Yellow button for "Buy Now" */
+        border-color: #f39c12;
+    }
+
+    .productdetail .btn-warning:hover {
+        background-color: #e67e22;
+    }
+
+    .productdetail .btn-danger {
+        background-color: #e74c3c; /* Red button for "Remove from Wishlist" */
+        border-color: #e74c3c;
+    }
+
+    .productdetail .btn-danger:hover {
+        background-color: #c0392b;
+    }
+
+    .productdetail .btn-success {
+        background-color: #2ecc71; /* Green button for "Add to Wishlist" */
+        border-color: #2ecc71;
+    }
+
+    .productdetail .btn-success:hover {
+        background-color: #27ae60;
+    }
+
+    /* Add a slight rounded border for the section */
+    .row {
+        border-radius: 20px;
+    }
+
+    /* Flexbox for aligning buttons in a row */
+    .btn-row {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px; /* Space between buttons */
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="img2 col-lg-5">
+            <img src="{{ product.product_image.url }}" alt="Product Image">
+        </div>
+        <div class="productdetail col-lg-6">
+            <h1>{{ product.title }}</h1>
+            <h5>Rs. {{ product.discounted_price }}/-</h5>
+            <small class="text-decoration-line-through text-muted fs-5">
+                <del>Rs. {{ product.selling_price }}/-</del>
+            </small>
+            <br><br>
+            <h4>Product Description</h4>
+            <ul>
+                <li>{{ product.description }}</li>
+            </ul>
+
+            <div class="btn-row">
+                <form action="/add-to-cart" class="d-inline">
+                    <input type="hidden" name="prod_id" value="{{ product.id }}"/>
+                    <button type="submit" class="btn btn-primary shadow px-5 py-2">
+                        Add to Cart
+                    </button>
+                </form>
+                <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2">Go to cart</a>
+                {% if wishlist %}
+                    <a pid="{{ product.id }}" class="minus-wishlist btn btn-danger shadow px-5 py-2">
+                        <i class="fas fa-heart fa-lg"></i>
+                    </a>
+                {% else %}
+                    <a pid="{{ product.id }}" class="plus-wishlist btn btn-success shadow px-5 py-2">
+                        <i class="fas fa-heart fa-lg"></i>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main-content %}

@@ -1,0 +1,84 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Category{% endblock title %}
+
+{% block main-content %}
+<style>
+       body {
+        background: linear-gradient(to right, #81c784, #c8e6c9); /* Fresh green gradient */
+        font-family: 'Segoe UI', sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .list-group {
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .product-box {
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 25px;
+    }
+
+    .product-box:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+        width: 300px;
+        height: 200px;
+        object-fit: cover; /* Changed from auto to cover for better fit */
+        border-radius: 8px;
+    }
+
+    .product-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+<div class="container my-5">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-sm-3 mb-4">
+            <div class="list-group">
+                <h5 class="list-group-item active bg-success text-white border-0 rounded-top">Categories</h5>
+                {% for val in title %}
+                    <a href="{% url 'category-title' val.title %}" class="list-group-item list-group-item-action">
+                        {{ val.title }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="col-sm-9">
+            <div class="row">
+                {% for prod in product %}
+                <div class="col-md-6 product-wrapper">
+                    <a href="{% url 'product-detail' prod.id %}" class="btn p-0 w-100">
+                        <div class="product-box text-center">
+                            <img src="{{ prod.product_image.url }}" class="product-image mb-3" alt="{{ prod.title }}">
+                            <div class="fw-bold">{{ prod.title }}</div>
+                            <div class="fw-bold text-danger">
+                                ₹{{ prod.discounted_price }}
+                                <small class="fw-light text-decoration-line-through text-muted">
+                                    ₹{{ prod.selling_price }}
+                                </small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

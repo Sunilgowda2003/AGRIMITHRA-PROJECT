@@ -1,0 +1,192 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Agricultural Practices{% endblock title %}
+
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(to right, #81c784, #c8e6c9); /* Soft green gradient */
+        font-family: 'Segoe UI', sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 85%;
+        margin: auto;
+        padding: 30px 20px;
+    }
+
+    .section {
+        background: #f0fdf4; /* Light green card */
+        color: #2e3d30;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 20px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        border: 2px solid #a5d6a7; /* Subtle green border */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    h2 {
+        text-align: center;
+        color: #1b5e20;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        text-align: center;
+        color: #2e7d32;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    h4 {
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 20px;
+        color: #1b4332;
+    }
+
+    h5 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 12px;
+        color: #33691e;
+    }
+
+    .subheading-soil { color: #e65100; }
+    .subheading-irrigation { color: #0277bd; }
+    .subheading-crop { color: #6a1b9a; }
+    .subheading-organic { color: #1b5e20; }
+
+    .subtopic-soil { color: #f57c00; }
+    .subtopic-irrigation { color: #29b6f6; }
+    .subtopic-crop { color: #ba68c8; }
+    .subtopic-organic { color: #66bb6a; }
+
+    p {
+        text-align: justify;
+        font-size: 16.5px;
+        line-height: 1.7;
+        color: #2e3d30;
+    }
+
+    .video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .video-container iframe {
+        width: 560px;
+        height: 315px;
+        border-radius: 15px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .video-container iframe:hover {
+        transform: scale(1.03);
+    }
+
+    .animate__fadeInLeft {
+        animation: fadeInLeft 1s;
+    }
+
+    .animate__fadeInRight {
+        animation: fadeInRight 1s;
+    }
+
+    .animate__zoomIn {
+        animation: zoomIn 0.5s;
+    }
+
+    @keyframes fadeInLeft {
+        0% { opacity: 0; transform: translateX(-50px); }
+        100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+        0% { opacity: 0; transform: translateX(50px); }
+        100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes zoomIn {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+</style>
+
+
+<div class="container">
+    <h2>Agricultural Practices</h2>
+    <p class="text-center">A guide to essential farming methods for better yield and sustainable agriculture.</p>
+
+    <!-- Soil Preparation Section -->
+    <div class="section">
+        <h3>Soil Preparation</h3>
+        <h4 class="subheading-soil">Importance of Soil Preparation</h4>
+        <p>Proper soil preparation ensures a good foundation for crops. It involves plowing, leveling, and adding organic matter to enrich the soil.</p>
+        <h5 class="subtopic-soil">Best Practices</h5>
+        <p>Use organic compost and natural fertilizers to improve soil fertility.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4QDVWNJ0DSU?si=zVLo37oFx6qMTI0p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/8ulpy_GFLDk?si=Jm8Gh7_C5MXfiJ7v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Irrigation Section -->
+    <div class="section">
+        <h3>Irrigation Methods</h3>
+        <h4 class="subheading-irrigation">Why Irrigation is Important</h4>
+        <p>Efficient irrigation methods optimize water usage, improve crop health, and reduce water wastage. Drip and sprinkler irrigation are modern techniques.</p>
+        <h5 class="subtopic-irrigation">Drip Irrigation</h5>
+        <p>Drip irrigation conserves water and provides nutrients directly to plant roots.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/52lRY7mlggM?si=OiZmm80wNWnwqsdd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/M0DISHKgePE?si=JjvpEhFzvS4T7JrT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Crop Rotation Section -->
+    <div class="section">
+        <h3>Crop Rotation</h3>
+        <h4 class="subheading-crop">Benefits of Crop Rotation</h4>
+        <p>Crop rotation prevents soil depletion and reduces pest infestations. Farmers rotate different crops in the same field each season to maintain soil health.</p>
+        <h5 class="subtopic-crop">Examples</h5>
+        <p>Rotating between legumes and cereals helps in nitrogen fixation.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Nk83ASvbNKk?si=cRq1fmVUhRd9MOuo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/XeNA6XdMoF8?si=BIxBDSNWJ9VHofi5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Organic Farming Section -->
+    <div class="section">
+        <h3>Organic Farming</h3>
+        <h4 class="subheading-organic">Why Choose Organic Farming?</h4>
+        <p>Organic farming promotes natural growth without synthetic fertilizers and pesticides. It helps in sustainable and eco-friendly agricultural practices.</p>
+        <h5 class="subtopic-organic">Key Techniques</h5>
+        <p>Using biofertilizers and companion planting improves crop health naturally.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/lRyXlvIJFWI?si=ckHOO3xNa_ERaWmt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1RfWgWZg7w4?si=oojWpf_r1hgOUSUh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

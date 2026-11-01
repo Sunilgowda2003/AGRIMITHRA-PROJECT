@@ -1,0 +1,68 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}Search Result{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for prod in product %}
+        <div class="col">
+            <div class="card h-100 shadow-lg hover-shadow border-light">
+                <a href="{% url 'product-detail' prod.product.id %}" class="text-decoration-none">
+                    <div class="card-img-container">
+                        <img src="{{ prod.product.product_image.url }}" class="card-img-top" alt="{{ prod.product.title }}">
+                    </div>
+                    <div class="card-body bg-light">
+                        <h5 class="card-title text-center text-dark fw-bold">{{ prod.product.title }}</h5>
+                        <div class="card-text text-center">
+                            <p class="fw-bold text-danger">
+                                Rs.{{ prod.product.discounted_price }}/-
+                                <small class="fw-light text-decoration-line-through text-muted">{{ prod.product.selling_price }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-container {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 100%;
+        object-fit: auto;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+</style>
+
+{% endblock main-content %}
+
