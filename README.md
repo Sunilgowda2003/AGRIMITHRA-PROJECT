@@ -27,40 +27,40 @@ AgriMithra is a Django-based agricultural platform designed to support farmers t
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-![Home Page](Screenshots/home.png)
+![Home Page](Screenshots/Home.png)
 
 ### 🛍️ Product Catalogue
-![Product Catalogue](Screenshots/products.png)
+![Product Catalogue](Screenshots/Product.png)
 
 ### 🛒 Shopping Cart
-![Shopping Cart](Screenshots/cart.png)
+![Shopping Cart](Screenshots/Cart.png)
 
 ### 📝 User Registration
-![Registration](Screenshots/registration.png)
+![Registration](Screenshots/Registration.png)
 
 ### 🔐 User Login
-![Login](Screenshots/login.png)
+![Login](Screenshots/Login.png)
 
 ### 🤖 AI Farming Assistant – MitraBot
-![MitraBot](Screenshots/chatbot.png)
+![MitraBot](Screenshots/Chatbot.png)
 
 ### 💳 Checkout and Payment
-![Payment](Screenshots/payment.png)
+![Payment](Screenshots/Payment%20.png)
 
 ### ✅ Payment Confirmation
-![Payment Confirmation](Screenshots/payment-confirmation.png)
+![Payment Confirmation](Screenshots/Payment%20Confirm.png)
 
 ### 🌿 About Us
-![About Us](Screenshots/about-us.png)
+![About Us](Screenshots/About%20Us.png)
 
 ### 📚 Agricultural Tutorials
-![Tutorials](Screenshots/tutorials.png)
+![Tutorials](Screenshots/Tutorials.png)
 
 ### 🏛️ Agricultural Schemes
-![Schemes](Screenshots/schemes.png)
+![Schemes](Screenshots/Schems.png)
 
 ### 🌾 Agricultural Evolution
-![Agricultural Evolution](Screenshots/agricultural-evolution.png)
+![Agricultural Evolution](Screenshots/Evolution.png)
 
 ## ⚙️ Run Locally
 
